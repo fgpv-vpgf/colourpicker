@@ -70,7 +70,7 @@ import tinycolor from '@ctrl/tinycolor';
     fallbackAlpha : 'transparent',
     forceHex      : true,
     matchInput    : false,
-    noAlpha       : false,
+    noAlpha       : true,
     useLastValid  : true,
   };
 
@@ -100,10 +100,8 @@ import tinycolor from '@ctrl/tinycolor';
 
       if (picker.options.noAlpha) {
         picker.wrap.el.addClass('_no-alpha');
-        picker.sliders.alpha.input.attr('hidden', 'hidden');
       } else {
         picker.wrap.el.removeClass('_no-alpha');
-        picker.sliders.alpha.input.removeAttr('hidden');
       }
 
       if (picker.options.matchInput) {
@@ -192,19 +190,6 @@ import tinycolor from '@ctrl/tinycolor';
         return picker.sliders.value.value;
       } else {
         picker.sliders.value.input
-          .val(val)
-          .trigger('change');
-        return this;
-      }
-    },
-
-    alpha: function(val, picker) {
-      picker = picker || getPickerData(this);
-
-      if (!arguments.length) {
-        return picker.sliders.alpha.value;
-      } else {
-        picker.sliders.alpha.input
           .val(val)
           .trigger('change');
         return this;
@@ -409,26 +394,14 @@ import tinycolor from '@ctrl/tinycolor';
         step   : 0.01,
         val    : 1,
         picker : picker
-      }),
-      alpha: renderSlider({
-        type   : 'alpha',
-        label  : 'Alpha',
-        id     : picker.input.id + '_slider__alpha',
-        class  : classes.alpha,
-        min    : 0,
-        max    : 1,
-        step   : 0.01,
-        val    : 1,
-        picker : picker
-      }),
+      })
     };
 
     picker.controls.el.append(
       sliders.hue.input,
       sliders.saturation.input,
       sliders.value.input,
-      sliders.alpha.input
-    );
+      );
 
     return sliders;
   }
@@ -531,7 +504,6 @@ import tinycolor from '@ctrl/tinycolor';
   function renderSliderBackgrounds(picker) {
     renderSliderBackgroundSaturation(picker);
     renderSliderBackgroundValue(picker);
-    renderSliderBackgroundAlpha(picker);
   }
 
   function renderSliderBackgroundSaturation(picker) {
@@ -550,16 +522,6 @@ import tinycolor from '@ctrl/tinycolor';
           end   : tinycolor({ h: sliders.hue.value, s: sliders.saturation.value, v: 1}).toRgbString()
         }, sliders.value.input);
     sliders.value.input.css('background-image', style);
-  }
-
-  function renderSliderBackgroundAlpha(picker) {
-    var sliders = picker.sliders,
-        colour = getSlidersModelColour(picker),
-        styles = getSliderGradientAlpha({
-          start : colour.setAlpha(0).toRgbString(),
-          end   : colour.setAlpha(1).toRgbString()
-        }, sliders.alpha.input);
-    sliders.alpha.input.css(styles);
   }
 
   function getSliderGradient(gradient, input) {
@@ -687,14 +649,8 @@ import tinycolor from '@ctrl/tinycolor';
   function updateSlidersModelFromSlider(type, picker) {
     var sliders = picker.sliders;
 
-    if (picker.options.noAlpha) {
-      sliders.alpha.value = 1;
-    }
 
     if (picker.options.autoSliders) {
-      if (type && type !== 'alpha' && sliders.alpha.value === 0) {
-        sliders.alpha.value = 1;
-      }
 
       if (type === 'hue' && sliders.saturation.value === 0) {
         sliders.saturation.value = 0.75;
@@ -715,7 +671,6 @@ import tinycolor from '@ctrl/tinycolor';
     picker.sliders.hue.value        = colour.h;
     picker.sliders.saturation.value = colour.s;
     picker.sliders.value.value      = colour.v;
-    picker.sliders.alpha.value      = colour.a;
   }
 
   // UI ---------------------------------------
@@ -746,7 +701,6 @@ import tinycolor from '@ctrl/tinycolor';
     updateSliderFromModel('hue',        picker);
     updateSliderFromModel('saturation', picker);
     updateSliderFromModel('value',      picker);
-    updateSliderFromModel('alpha',      picker);
     renderSliderBackgrounds(picker);
   }
 
@@ -791,8 +745,7 @@ import tinycolor from '@ctrl/tinycolor';
     return tinycolor({
       h: picker.sliders.hue.value,
       s: picker.sliders.saturation.value,
-      v: picker.sliders.value.value,
-      a: picker.sliders.alpha.value,
+      v: picker.sliders.value.value
     });
   }
 
