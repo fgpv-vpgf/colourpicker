@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/RyanCoulsonCA/colourpicker/issues"
   },
-  "homepage": "https://github.com/RyanCoulsonCA/colourpicker#readme"
+  "homepage": "https://github.com/RyanCoulsonCA/colourpicker#readme",
+  "dependencies": {
+    "tinycolor": "0.0.1"
+  }
 }
