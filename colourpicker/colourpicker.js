@@ -43,7 +43,7 @@ console.log(tinycolor);
   var name = 'colourpicker';
 
   var defaults, methods,
-      html, ids, classes;
+      html, ids, classes, copy;
 
   classes = {
     wrap          : name,
