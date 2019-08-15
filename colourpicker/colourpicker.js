@@ -56,7 +56,7 @@ import tinycolor from '@ctrl/tinycolor';
     hue           : '_hue',
     saturation    : '_saturation',
     value         : '_value',
-    alpha         : '_alpha',
+    alpha         : '_alpha'
   };
 
   copy = {
@@ -71,7 +71,7 @@ import tinycolor from '@ctrl/tinycolor';
     forceHex      : true,
     matchInput    : false,
     noAlpha       : true,
-    useLastValid  : true,
+    useLastValid  : true
   };
 
   // Methods ------------------------------------------------------
@@ -293,7 +293,7 @@ import tinycolor from '@ctrl/tinycolor';
     var $swatch = $('<span>')
       .attr({
         id    : picker.input.id + '_swatch',
-        class : classes.swatch,
+        class : classes.swatch
       });
 
     var button = renderSwatchButton(picker);
@@ -400,7 +400,7 @@ import tinycolor from '@ctrl/tinycolor';
     picker.controls.el.append(
       sliders.hue.input,
       sliders.saturation.input,
-      sliders.value.input,
+      sliders.value.input
       );
 
     return sliders;
@@ -446,7 +446,7 @@ import tinycolor from '@ctrl/tinycolor';
     return {
       el      : $controls,
       close   : $button,
-      hidden  : true,
+      hidden  : true
     };
   }
 
@@ -536,34 +536,6 @@ import tinycolor from '@ctrl/tinycolor';
       gradient.start + ','    +
       gradient.end   +
     ')';
-  }
-
-  function getSliderGradientAlpha(gradient, input) {
-    input.css({
-      'background-image'    : '',
-      'background-size'     : '',
-      'background-position' : '',
-    });
-
-    var original = {
-      'height'   : input[0].clientHeight,
-      'image'    : input.css('background-image'),
-      'size'     : input.css('background-size'),
-      'position' : input.css('background-position'),
-    };
-
-    if (original.height) {
-      gradient.end += ' calc(100% - ' + (original.height / 2) +  'px)';
-    }
-
-    return {
-      'background-image': 'linear-gradient(90deg,' +
-          gradient.start + ', ' +
-          gradient.end +
-        '), ' + original.image,
-      'background-size'    : 'cover, ' + original.size,
-      'background-position': '0 0, '   + original.position
-    };
   }
 
   // Input ////////////////////////////////////////////////////////
