@@ -4,8 +4,9 @@
 // License: MIT
 
 import tinycolor from 'tinycolor';
+console.log(tinycolor);
 
-(function($) {
+(function($, tinycolor) {
   // Data /////////////////////////////////////////////////////////
   // - options    : object
   // - value      : string
