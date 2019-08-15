@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/RyanCoulsonCA/colourpicker#readme",
   "dependencies": {
-    "tinycolor": "0.0.1"
+    "@ctrl/tinycolor": "^2.5.3"
   }
 }

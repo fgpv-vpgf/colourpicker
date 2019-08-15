@@ -3,8 +3,7 @@
 // Author:  Jason Mervyn Hibbs
 // License: MIT
 
-import tinycolor from 'tinycolor';
-console.log(tinycolor);
+import tinycolor from '@ctrl/tinycolor';
 
 (function($, tinycolor) {
   // Data /////////////////////////////////////////////////////////
@@ -69,7 +68,7 @@ console.log(tinycolor);
     autoSliders   : true,
     fallback      : 'black',
     fallbackAlpha : 'transparent',
-    forceHex      : false,
+    forceHex      : true,
     matchInput    : false,
     noAlpha       : false,
     useLastValid  : true,
@@ -360,6 +359,7 @@ console.log(tinycolor);
 
   function doWrap(picker) {
     var wrap = $('<span class="' + classes.wrap + '"></span>');
+    wrap.css('width','100%');
 
     picker.input.el
       .wrap(wrap)
@@ -811,7 +811,7 @@ console.log(tinycolor);
       return false;
     }
 
-    return colour.isValid();
+    return colour.isValid;
   }
 
   // Run ----------------------------------------------------------
