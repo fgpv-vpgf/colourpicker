@@ -1,0 +1,19 @@
+{
+  "name": "colourpicker",
+  "version": "1.0.0",
+  "description": "Finally, a usable (accessible, rational, and responsive) colour picker for the web.",
+  "main": "colourpicker/colourpicker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanCoulsonCA/colourpicker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyanCoulsonCA/colourpicker/issues"
+  },
+  "homepage": "https://github.com/RyanCoulsonCA/colourpicker#readme"
+}
