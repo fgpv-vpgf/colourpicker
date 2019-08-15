@@ -3,7 +3,9 @@
 // Author:  Jason Mervyn Hibbs
 // License: MIT
 
-(function($, tinycolor) {
+import tinycolor from 'tinycolor';
+
+(function($) {
   // Data /////////////////////////////////////////////////////////
   // - options    : object
   // - value      : string
