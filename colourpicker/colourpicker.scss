@@ -182,6 +182,7 @@ $colourpicker_slider__shadow        : inset 0 1px 1px fade_out(#001, 0.90);
   height: 100%;
   cursor: pointer;
   background: transparent;
+  border: 0;
   border-radius: $colourpicker_swatch__radius;
 
   &,
