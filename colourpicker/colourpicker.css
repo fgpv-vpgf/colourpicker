@@ -36,6 +36,7 @@
   cursor: pointer;
   background: transparent;
   border-radius: 1px;
+  border: 0;
 }
 .colourpicker_swatch_button,
 .colourpicker_swatch_button:focus,
